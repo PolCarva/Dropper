@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;700;900&display=swap');
+
+:root {
+    --color-main: #0f4a79;
+    --color-secondary: #7800D3;
+    --color-dark: #131313;
+    --color-light: #ffffff;
+    --color-success: #8ae26a;
+    --color-gray: #a4a4a4;
+}
+
+body {
+    font-family: 'Source Code Pro', monospace;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--color-main);
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--color-main);
+    transition: all 0.3s ease;
+}
+a:hover {
+    color: var(--color-secondary);
+}
+
+.item {
+    width: 18rem;
+}
+
+.itemDetail {
+    max-width: 70%;
+}
+
+.color-main {
+    color: var(--color-main) !important;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

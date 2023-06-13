@@ -1,0 +1,23 @@
+.cartWidget-container {
+    position: relative;
+    cursor: pointer;
+}
+.carro {
+    transition: all 0.3s ease;
+}
+.cartWidget-container:hover .carro {
+    color: var(--color-secondary);
+}
+
+.carritoCount {
+    color: var(--color-main);
+    display: grid;
+    place-items: center;
+    background-color: var(--color-success);
+    border-radius: 100px;
+    width: 1.5em;
+    height: 1.5em;
+    position: absolute;
+    right: -0.5em;
+    top: 0;
+}

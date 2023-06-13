@@ -1,0 +1,40 @@
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+
+.logo-img {
+  width: 35px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--color-main);
+  margin: 0;
+  transition: all 0.3s ease;
+}
+
+.logo:hover .logo-text {
+  color: var(--color-secondary);
+}
+
+
+@media (max-width: 768px) {
+  .logo {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo img {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .logo h1 {
+    font-size: 16px;
+  }
+}

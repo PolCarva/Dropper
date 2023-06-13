@@ -1,0 +1,32 @@
+.btn-main {
+    background-color: var(--color-main);
+    color: var(--color-light);
+    text-transform: uppercase;
+    border: 2px solid transparent;
+
+}
+
+.btn-main:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+}
+
+.outlined-btn {
+    border: 2px solid var(--color-main);
+}
+
+.outlined-btn:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-light) !important;
+}
+
+.stock {
+    color: var(--color-gray);
+    font-size: 12px;
+}
+
+.card-img-grid {
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
