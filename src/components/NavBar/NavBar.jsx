@@ -12,7 +12,7 @@ const NavBar = () => {
   };
 
   return (
-    <header className="header">
+    <header className="header m-top">
       <Link to={"/"} id="logo">
         <Logo />
       </Link>
@@ -28,22 +28,22 @@ const NavBar = () => {
         </div>
         <ul className={`nav-list ${isMenuOpen ? "open" : ""}`}>
           <li className="nav-item">
-            <NavLink to={"/"} activeClassName="active" onClick={handleMenuToggle}>
+            <NavLink to={"/"} onClick={handleMenuToggle} activeclassname="active">
               All
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to={"/categoria/shirts"} activeClassName="active" onClick={handleMenuToggle}>
+            <NavLink to={"/categoria/shirts"} onClick={handleMenuToggle} activeclassname="active">
               Shirts
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to={"/categoria/hoodies"} activeClassName="active" onClick={handleMenuToggle}>
+            <NavLink to={"/categoria/hoodies"} onClick={handleMenuToggle} activeclassname="active">
               Hoodies
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to={"/categoria/shorts"} activeClassName="active" onClick={handleMenuToggle}>
+            <NavLink to={"/categoria/shorts"} onClick={handleMenuToggle} activeclassname="active">
               Shorts
             </NavLink>
           </li>

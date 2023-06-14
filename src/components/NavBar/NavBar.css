@@ -52,6 +52,10 @@
 
 
 @media only screen and (max-width: 625px) {
+
+    .header {
+        padding: 1em 1em;
+    }
     #logo {
         display: none;
     }

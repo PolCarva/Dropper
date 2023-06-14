@@ -30,3 +30,39 @@
     object-fit: cover;
     object-position: center;
 }
+
+.bg-secondary {
+    background-color: var(--color-secondary) !important;
+}
+.greyscale {
+    position: relative;
+}
+.greyscale img {
+    filter: grayscale(1) blur(2px);
+    transition: all 0.3s ease;
+}
+
+.greyscale:hover img {
+    filter: none;
+}
+
+.greyscale:hover::before {
+    opacity: 0;
+}
+
+.greyscale::before {
+    content: "No Stock";
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 4px;
+    z-index: 1;
+    transition: all 0.3s ease;
+}

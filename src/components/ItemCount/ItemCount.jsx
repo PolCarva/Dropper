@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 const ItemCount = ({ stock, agregarProducto }) => {
-  const [count, setCount] = useState(1);
+  const [count, setCount] = stock > 0 ? useState(1) : useState(0);
 
   const incrementar = () => {
     if (count < stock) {
@@ -40,25 +40,39 @@ const ItemCount = ({ stock, agregarProducto }) => {
 
   return (
     <div className="d-flex">
-      <button className="btn btn-main me-2" onClick={decrementar}>
+      <button
+        className={stock !== 0 ? "btn btn-main me-2" : "btn disabled me-2"}
+        onClick={decrementar}
+      >
         {" "}
         -{" "}
       </button>
 
       <input
-        className="form-control text-center me-3"
+        className={
+          stock !== 0
+            ? "form-control text-center me-3"
+            : "form-control text-center me-3 disabled"
+        }
         id="inputQuantity"
         type="text"
         value={count}
         onChange={validateCount}
         onBlur={validateOut}
       />
-      <button className="btn btn-main me-2" onClick={incrementar}>
+      <button
+        className={stock !== 0 ? "btn btn-main me-2" : "btn disabled me-2"}
+        onClick={incrementar}
+      >
         {" "}
         +{" "}
       </button>
       <button
-        className="btn outlined-btn flex-shrink-0 text-uppercase color-main col-4"
+        className={
+          stock !== 0
+            ? "btn outlined-btn flex-shrink-0 text-uppercase color-main col-4"
+            : "btn outlined-btn flex-shrink-0 text-uppercase color-main col-4 disabled"
+        }
         type="button"
         onClick={() => {
           agregarProducto(count);

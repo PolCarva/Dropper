@@ -21,3 +21,23 @@
     right: -0.5em;
     top: 0;
 }
+
+@keyframes shake {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: translateX(1);
+    }
+  }
+  
+  .animate-cart {
+    animation-name: shake;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 2;
+  }
+  

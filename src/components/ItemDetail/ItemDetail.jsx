@@ -13,7 +13,6 @@ const ItemDetail = ({ id, nombre, precio, img, stock, desc }) => {
     setAgregarCantidad(cantidad);
     const item = { id, nombre, precio, img };
     agregarProducto(item, cantidad);
-    console.log(cantidad);
   };
 
   return (
@@ -33,13 +32,22 @@ const ItemDetail = ({ id, nombre, precio, img, stock, desc }) => {
             <div className="fs-5 mb-5">
               <span className="price">$ {precio}</span>
             </div>
-            <p className="lead">
-              {desc}
-            </p>
+            <p className="lead">{desc}</p>
             {agregarCantidad > 0 ? (
-              <Link to={"/cart"} className="btn btn-main">
-                Finish Buying
-              </Link>
+              <>
+                <Link
+                  to="/"
+                  className="btn outlined-btn  col-11 col-md-5 m-md-auto mt-3"
+                >
+                  CONTINUE
+                </Link>
+                <Link
+                  to={"/cart"}
+                  className="btn btn-main col-11 col-md-5 ms-md-1 mt-3 mt-md-0"
+                >
+                  Finish Buying
+                </Link>
+              </>
             ) : (
               <ItemCount stock={stock} agregarProducto={manejadorCantidad} />
             )}

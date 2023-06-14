@@ -1,0 +1,12 @@
+.swal2-actions>.swal2-confirm,
+.swal2-actions>.swal2-styled {
+    background-color: var(--color-main);
+    transition: all 0.3s ease;
+}
+.swal2-actions>.swal2-confirm:has(a) {
+    padding: 0;
+}
+.swal2-confirm:hover,
+.swal2-styled:hover {
+    background-color: var(--color-secondary);
+}
