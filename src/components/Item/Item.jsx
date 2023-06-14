@@ -1,7 +1,18 @@
 import "./Item.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { CarritoContext } from "../../context/CarritoContext";
 
 const Item = ({ id, nombre, precio, img, stock }) => {
+  const navigate = useNavigate();
+  const { agregarProducto } = useContext(CarritoContext);
+
+  const handleAddToCart = () => {
+    const item = { id, nombre, precio, img, stock };
+    agregarProducto(item, 1); // Agrega el producto al carrito con una cantidad de 1.
+    navigate("/cart");
+  };
+
   return (
     <div className="card item p-0">
       <img src={img} className="card-img-top card-img-grid" alt={nombre} />
@@ -14,11 +25,10 @@ const Item = ({ id, nombre, precio, img, stock }) => {
         <p className="card-text">$ {precio}</p>
         <div className="buttons row">
           <div className="col-12 col-md-6">
-            <Link to={`/item/${id}`} className="btn btn-main w-100 ">
-            <i className="bi-cart-fill me-1" />
-
+            <button onClick={handleAddToCart} className="btn btn-main w-100 ">
+              <i className="bi-cart-fill me-1" />
               ADD
-            </Link>
+            </button>
           </div>
           <div className="col-12 col-md-6 mt-2 mt-md-0">
             <Link to={`/item/${id}`} className="btn outlined-btn w-100">

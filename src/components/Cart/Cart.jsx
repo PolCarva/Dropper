@@ -10,20 +10,20 @@ const Cart = () => {
 
   if (cantidadTotal === 0) {
     return (
-      <div className="centered">
-        <h2>No hay productos en el carrito</h2>
-        <Link to="/">Ver Productos</Link>
+      <div className="centered d-flex flex-column text-center">
+        <h2 className="mb-4">Your cart is empty</h2>
+        <Link to="/" className="btn btn-main col-md-6 m-auto">See Products</Link>
       </div>
     );
   }
   return (
-    <div className="col-11 m-auto centered">
+    <div className="col-11 m-top">
       {carrito.map((producto) => (
-        <CartItem key={producto.id} {...producto} />
+        <CartItem key={producto.item.id} {...producto} />
       ))}
-      <div className="col-6 m-auto text-center">
+      <div className="col-6 m-auto text-center mt-4">
         <h3>Total Price: ${total.toFixed(2)}</h3>
-        <h3>Total Items: {cantidadTotal}</h3>
+        <h3 className="mb-4">Total Items: {cantidadTotal}</h3>
         <button
           onClick={() => vaciarCarrito()}
           className="btn outlined col-4 me-1"

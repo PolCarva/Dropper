@@ -7,18 +7,26 @@ const CartItem = ({ item, cantidad }) => {
     <div className="card mb-3 m-auto" style={{ maxWidth: 540 }} key={item.id}>
       <div className="row g-0">
         <div className="col-md-4">
-          <img src={item.img} className="img-fluid rounded-start" alt={item.nombre} />
+          <img
+            src={item.img}
+            className="img-fluid rounded-start"
+            style={{maxHeight: '120px'}}
+            alt={item.nombre}
+          />
         </div>
         <div className="col-md-8">
           <div className="card-body">
             <h5 className="card-title">{item.nombre}</h5>
             <p className="card-text">
               x{cantidad}
-              <small className="text-body-secondary ">
-                 $ {item.precio}
-              </small>
+              <small className="text-body-secondary "> $ {item.precio}</small>
             </p>
-            <button onClick={() => eliminarProducto(item.id)}>Eliminar</button>
+            <button
+              className="text-danger btn p-3 position-absolute bottom-0 end-0"
+              onClick={() => eliminarProducto(item.id)}
+            >
+              Eliminar
+            </button>
           </div>
         </div>
       </div>

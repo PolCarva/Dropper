@@ -56,9 +56,9 @@ const Checkout = () => {
   };
 
   return (
-    <div className="centered">
+    <div className="m-top col-11 m-auto">
+      <div className="items-list text-center">
       <h2>Checkout</h2>
-      <div className="items-list">
         {carrito.map((producto) => (
           <div key={producto.item.id} className="form-group">
             <p>
@@ -72,45 +72,50 @@ const Checkout = () => {
       <p>Total: $ {total}</p>
       <form onSubmit={formHandler} className="formulario">
         <div>
-          <label htmlFor="">Nombre</label>
+          <label htmlFor="nombre">Nombre</label>
           <input
             type="text"
+            id="nombre"
             value={nombre}
             onChange={(e) => {
               setNombre(e.target.value);
             }}
           />
 
-          <label htmlFor="">Apellido</label>
+          <label htmlFor="apellido">Apellido</label>
           <input
             type="text"
+            id="apellido"
             value={apellido}
             onChange={(e) => {
               setApellido(e.target.value);
             }}
           />
 
-          <label htmlFor="">Telefono</label>
+          <label htmlFor="telefono">Telefono</label>
           <input
             type="text"
+            id="telefono"
             value={telefono}
             onChange={(e) => {
               setTelefono(e.target.value);
             }}
           />
 
-          <label htmlFor="">Email</label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
+            id="email"
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
             }}
           />
 
-          <label htmlFor="">Confirmar Email</label>
+          <label htmlFor="emailConfirmacion">Confirmar Email</label>
           <input
             type="email"
+            id="emailConfirmacion"
             value={emailConfirmacion}
             onChange={(e) => {
               setEmailConfirmacion(e.target.value);

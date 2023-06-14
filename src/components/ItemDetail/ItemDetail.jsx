@@ -4,20 +4,20 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CarritoContext } from "../../context/CarritoContext";
 
-const ItemDetail = ({ id, nombre, precio, img, stock }) => {
+const ItemDetail = ({ id, nombre, precio, img, stock, desc }) => {
   const [agregarCantidad, setAgregarCantidad] = useState(0);
 
   const { agregarProducto } = useContext(CarritoContext);
 
   const manejadorCantidad = (cantidad) => {
     setAgregarCantidad(cantidad);
-    const item = { id, nombre, precio };
+    const item = { id, nombre, precio, img };
     agregarProducto(item, cantidad);
     console.log(cantidad);
   };
 
   return (
-    <section className="detailContainer col-11 m-auto align-items-center">
+    <section className="detailContainer col-11 m-auto align-items-center m-top">
       <div className="container px-4 px-lg-5">
         <div className="row gx-4 gx-lg-5 align-items-center">
           <div className="col-md-6">
@@ -27,17 +27,14 @@ const ItemDetail = ({ id, nombre, precio, img, stock }) => {
               alt={nombre}
             />
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 mb-5">
             <div className="small mb-1 text-body-tertiary">Item Id: {id}</div>
             <h1 className="display-5 fw-bolder">{nombre}</h1>
             <div className="fs-5 mb-5">
               <span className="price">$ {precio}</span>
             </div>
             <p className="lead">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Praesentium at dolorem quidem modi. Nam sequi consequatur
-              obcaecati excepturi alias magni, accusamus eius blanditiis
-              delectus ipsam minima ea iste laborum vero?
+              {desc}
             </p>
             {agregarCantidad > 0 ? (
               <Link to={"/cart"} className="btn btn-main">

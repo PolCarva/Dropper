@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import CartWidget from "../CartWidget/CartWidget";
 import "./NavBar.css";
@@ -28,22 +28,22 @@ const NavBar = () => {
         </div>
         <ul className={`nav-list ${isMenuOpen ? "open" : ""}`}>
           <li className="nav-item">
-            <NavLink to={"/"} onClick={handleMenuToggle}>
+            <NavLink to={"/"} activeClassName="active" onClick={handleMenuToggle}>
               All
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to={"/categoria/shirts"} onClick={handleMenuToggle}>
+            <NavLink to={"/categoria/shirts"} activeClassName="active" onClick={handleMenuToggle}>
               Shirts
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to={"/categoria/hoodies"} onClick={handleMenuToggle}>
+            <NavLink to={"/categoria/hoodies"} activeClassName="active" onClick={handleMenuToggle}>
               Hoodies
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to={"/categoria/shorts"} onClick={handleMenuToggle}>
+            <NavLink to={"/categoria/shorts"} activeClassName="active" onClick={handleMenuToggle}>
               Shorts
             </NavLink>
           </li>

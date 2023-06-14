@@ -7,7 +7,6 @@
     position: fixed;
     width: 100%;
     z-index: 1;
-    opacity: 0.5;
 }
 
 .nav-list {
@@ -28,20 +27,29 @@
     width: 0%;
     height: 2px;
     background-color: var(--color-main);
-    bottom: -0.2em;
+    bottom: 0.5em;
     left: 50%;
     transform: translateX(-50%);
     transition: 0.3s ease;
 }
 
 .nav-item a:hover::before {
-    width: 100%;
+    width: 90%;
 }
 
 .iconMenu {
     display: none;
     z-index: 3;
 }
+
+.active {
+    color: var(--color-secondary);
+}
+
+.nav-item .active::before {
+    width: 90%;
+}
+
 
 @media only screen and (max-width: 625px) {
     #logo {
