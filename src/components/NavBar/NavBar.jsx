@@ -28,29 +28,49 @@ const NavBar = () => {
         </div>
         <ul className={`nav-list ${isMenuOpen ? "open" : ""}`}>
           <li className="nav-item">
-            <NavLink to={"/"} onClick={handleMenuToggle} activeclassname="active">
+            <NavLink
+              to={"/"}
+              onClick={handleMenuToggle}
+              activeclassname="active"
+            >
               All
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to={"/categoria/shirts"} onClick={handleMenuToggle} activeclassname="active">
+            <NavLink
+              to={"/categoria/shirts"}
+              onClick={handleMenuToggle}
+              activeclassname="active"
+            >
               Shirts
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to={"/categoria/hoodies"} onClick={handleMenuToggle} activeclassname="active">
+            <NavLink
+              to={"/categoria/hoodies"}
+              onClick={handleMenuToggle}
+              activeclassname="active"
+            >
               Hoodies
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to={"/categoria/shorts"} onClick={handleMenuToggle} activeclassname="active">
+            <NavLink
+              to={"/categoria/shorts"}
+              onClick={handleMenuToggle}
+              activeclassname="active"
+            >
               Shorts
             </NavLink>
           </li>
         </ul>
       </nav>
 
+      <Link to={"/"} id="logo-responsive">
+        <Logo />
+      </Link>
       <CartWidget />
+      
     </header>
   );
 };
