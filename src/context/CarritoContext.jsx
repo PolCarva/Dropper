@@ -13,11 +13,30 @@ export const CarritoProvider = ({ children }) => {
 
   const agregarProducto = (item, cantidad) => {
     const productoExistente = carrito.find((prod) => prod.item.id === item.id);
-    if (!productoExistente) {
-      setCarrito((prev) => [...prev, { item, cantidad }]);
-      setCantidadTotal((prev) => prev + cantidad);
-      setTotal((prev) => prev + item.precio * cantidad);
-    } else {
+
+    if (productoExistente) {
+      // Si el producto ya está en el carrito, verifica si se puede añadir más
+      if (productoExistente.cantidad + cantidad > item.stock) {
+        const cantidadDisponible = item.stock - productoExistente.cantidad;
+        if (cantidadDisponible > 0) {
+          Swal.fire({
+            title: "Not Enough Stock",
+            text: `Only ${cantidadDisponible} more units of this product can be added. Adding ${cantidadDisponible} to your cart.`,
+            timer: 2500,
+            timerProgressBar: true,
+          });
+          agregarProducto(item, cantidadDisponible);
+        } else {
+          Swal.fire({
+            title: "Not Stock",
+            text: "You have reached the maximum quantity of this product.",
+            timer: 2500,
+            timerProgressBar: true,
+          });
+        }
+        return;
+      }
+
       const carritoActualizado = carrito.map((prod) => {
         if (prod.item.id === item.id) {
           return { ...prod, cantidad: prod.cantidad + cantidad };
@@ -26,6 +45,22 @@ export const CarritoProvider = ({ children }) => {
         }
       });
       setCarrito(carritoActualizado);
+      setCantidadTotal((prev) => prev + cantidad);
+      setTotal((prev) => prev + item.precio * cantidad);
+    } else {
+      // Si el producto no está en el carrito, verifica si hay stock suficiente
+      if (cantidad > item.stock) {
+        Swal.fire({
+          title: "Not Enough Stock",
+          text: `Only ${item.stock} units of this product are available. Adding ${item.stock} to your cart.`,
+          timer: 2500,
+          timerProgressBar: true,
+        });
+        agregarProducto(item, item.stock);
+        return;
+      }
+
+      setCarrito((prev) => [...prev, { item, cantidad }]);
       setCantidadTotal((prev) => prev + cantidad);
       setTotal((prev) => prev + item.precio * cantidad);
     }

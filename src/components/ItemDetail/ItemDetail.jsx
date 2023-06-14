@@ -5,14 +5,29 @@ import { Link } from "react-router-dom";
 import { CarritoContext } from "../../context/CarritoContext";
 
 const ItemDetail = ({ id, nombre, precio, img, stock, desc }) => {
-  stock < 0 || stock === NaN ? (stock = 0) : (stock = stock);
+  stock < 0 || isNaN(stock) ? (stock = 0) : (stock = stock);
   const [agregarCantidad, setAgregarCantidad] = useState(0);
 
   const { agregarProducto } = useContext(CarritoContext);
 
   const manejadorCantidad = (cantidad) => {
-    setAgregarCantidad(cantidad);
-    const item = { id, nombre, precio, img };
+    setAgregarCantidad(cantidad)
+
+    const item = { id, nombre, precio, img, stock };
+
+    // Controla el stock antes de agregar el producto al carrito
+    if (cantidad > stock) {
+      Swal.fire({
+        icon: "info",
+        title: "Not Enough Stock",
+        text: `Only ${item.stock} units of this product are available. Adding ${item.stock} to your cart.`,
+        timer: 3000,
+        timerProgressBar: true,
+      });
+      agregarProducto(item, stock);
+      return;
+    }
+
     agregarProducto(item, cantidad);
   };
 
@@ -46,7 +61,7 @@ const ItemDetail = ({ id, nombre, precio, img, stock, desc }) => {
                   to={"/cart"}
                   className="btn btn-main col-11 col-md-5 ms-md-1 mt-3 mt-md-0"
                 >
-                  Finish Buying
+                  FINISH
                 </Link>
               </>
             ) : (
