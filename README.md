@@ -1,4 +1,5 @@
 # Dropper
+https://droppershop.netlify.app/
 Este proyecto es una aplicación de ecommerce básica utilizada como parte de un curso de React. La aplicación permite a los usuarios ver y navegar una lista de prendas de vestir en una tienda imaginaria y realizar compras en línea. Los productos y las órdenes de compra se almacenan en una base de datos de Firebase.
 
 ## Tecnologías utilizadas
