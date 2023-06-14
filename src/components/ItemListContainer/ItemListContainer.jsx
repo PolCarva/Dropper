@@ -11,20 +11,25 @@ const ItemListContainer = () => {
   const { idCategoria } = useParams();
 
   useEffect(() => {
-    const misProductos = idCategoria ? query(collection(db, "productos"), where("idCat", "==", idCategoria)) : collection(db, "productos");
+    const misProductos = idCategoria
+      ? query(collection(db, "productos"), where("idCat", "==", idCategoria))
+      : collection(db, "productos");
 
     setIsLoading(true);
 
     getDocs(misProductos)
-      .then(res => {
-        const nuevosProductos = res.docs.map(doc => {
-          const data = doc.data()
-          return {id: doc.id, ...data}
-        })
+      .then((res) => {
+        const nuevosProductos = res.docs.map((doc) => {
+          let data = doc.data();
+          isNaN(data.stock) || data.stock < 0
+            ? (data.stock = 0)
+            : (data.stock = data.stock);
+          return { id: doc.id, ...data };
+        });
         setProductos(nuevosProductos);
         setIsLoading(false);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
         setIsLoading(false);
       });
