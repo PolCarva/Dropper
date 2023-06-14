@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { CarritoContext } from "../../context/CarritoContext";
 
 const ItemDetail = ({ id, nombre, precio, img, stock, desc }) => {
+  stock < 0 || stock === NaN ? (stock = 0) : (stock = stock);
   const [agregarCantidad, setAgregarCantidad] = useState(0);
 
   const { agregarProducto } = useContext(CarritoContext);

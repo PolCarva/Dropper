@@ -1,8 +1,10 @@
-#inputQuantity {
-    max-width: 5rem;
-}
-
 .img-detail {
     max-width: 60vh;
     padding: 1em;
+}
+
+@media screen and (max-width: 768px) {
+    #inputQuantity {
+        max-width: 10em;
+    }
 }

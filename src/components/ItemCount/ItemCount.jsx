@@ -39,50 +39,71 @@ const ItemCount = ({ stock, agregarProducto }) => {
   };
 
   return (
-    <div className="d-flex">
-      <button
-        className={stock !== 0 ? "btn btn-main me-2" : "btn disabled me-2"}
-        onClick={decrementar}
-      >
-        {" "}
-        -{" "}
-      </button>
-
-      <input
+    <div className="row align-items-center justify-content-center">
+      <div
         className={
           stock !== 0
-            ? "form-control text-center me-3"
-            : "form-control text-center me-3 disabled"
+            ? "d-flex mb-4 mb-md-0 col-12 col-md-8 justify-content-center"
+            : "d-flex mb-4 mb-md-0 col-12 col-md-8 disabled justify-content-center"
         }
-        id="inputQuantity"
-        type="text"
-        value={count}
-        onChange={validateCount}
-        onBlur={validateOut}
-      />
-      <button
-        className={stock !== 0 ? "btn btn-main me-2" : "btn disabled me-2"}
-        onClick={incrementar}
       >
-        {" "}
-        +{" "}
-      </button>
-      <button
-        className={
-          stock !== 0
-            ? "btn outlined-btn flex-shrink-0 text-uppercase color-main col-4"
-            : "btn outlined-btn flex-shrink-0 text-uppercase color-main col-4 disabled"
-        }
-        type="button"
-        onClick={() => {
-          agregarProducto(count);
-        }}
-      >
-        <i className="bi-cart-fill me-1" />
-        ADD
-      </button>
+        <button
+          className={
+            stock !== 0
+              ? "btn btn-main me-2 flex-grow-1" // Added flex-grow-1 to occupy remaining space
+              : "btn disabled me-2 flex-grow-1" // Added flex-grow-1 to occupy remaining space
+          }
+          onClick={decrementar}
+        >
+          {" "}
+          -{" "}
+        </button>
+  
+        <input
+          className={
+            stock !== 0
+              ? "form-control text-center me-3"
+              : "form-control text-center me-3 disabled"
+          }
+          id="inputQuantity"
+          type="text"
+          value={count}
+          onChange={validateCount}
+          onBlur={validateOut}
+        />
+  
+        <button
+          className={
+            stock !== 0
+              ? "btn btn-main me-2 flex-grow-1" // Added flex-grow-1 to occupy remaining space
+              : "btn disabled me-2 flex-grow-1" // Added flex-grow-1 to occupy remaining space
+          }
+          onClick={incrementar}
+        >
+          {" "}
+          +{" "}
+        </button>
+      </div>
+  
+      <div className="col-12 col-md-4">
+        <button
+          className={
+            stock !== 0
+              ? "btn outlined-btn mt-4 mt-md-0 text-uppercase color-main w-100"
+              : "btn outlined-btn mt-4 mt-md-0 text-uppercase color-main w-100 disabled"
+          }
+          type="button"
+          onClick={() => {
+            agregarProducto(count);
+          }}
+        >
+          <i className="bi-cart-fill me-1" />
+          ADD
+        </button>
+      </div>
     </div>
   );
+  
 };
 
 export default ItemCount;

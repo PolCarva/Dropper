@@ -63,7 +63,7 @@ const Item = ({ id, nombre, precio, img, stock }) => {
       <img src={img} className="card-img-top card-img-grid" alt={nombre} />
       <div className="card-body">
         <div className="row">
-          <h5 className="card-title col-6">{nombre}</h5>
+          <h5 className="card-title card-title-fixed col-6">{nombre}</h5>
           <span className="stock col-6 text-end">Stock: {stock}</span>
         </div>
         <p className="card-text">$ {precio}</p>

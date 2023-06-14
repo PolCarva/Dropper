@@ -20,6 +20,10 @@
     color: var(--color-light) !important;
 }
 
+.card-title-fixed {
+    height: 2em;
+}
+
 .stock {
     color: var(--color-gray);
     font-size: 12px;
