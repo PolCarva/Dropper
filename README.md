@@ -8,12 +8,15 @@ Este proyecto es una aplicación de ecommerce básica utilizada como parte de un
 - React Router: una biblioteca de enrutamiento para aplicaciones de React.
 - Firebase: una plataforma de desarrollo de aplicaciones en la nube que proporciona servicios y herramientas para la creación de aplicaciones web y móviles.
 - Vite: un entorno de desarrollo web rápido que permite construir aplicaciones React de manera eficiente.
+- Bootstrap: un framework de diseño front-end que facilita el desarrollo de sitios web y aplicaciones web responsivas.
+- Sweet Alert 2: una biblioteca de JavaScript que proporciona una forma fácil y atractiva de mostrar alertas. Es una mejora y una alternativa a las alertas modales predeterminadas del navegador.
 
 ## Funcionalidades
-- Ver una lista de productos disponibles
-- Agregar productos al carrito de compras
-- Ver el carrito de compras
-- Realizar una orden de compra
+- Ver una lista de productos disponibles.
+- Filtrar productos por categoría.
+- Agregar productos al carrito de compras.
+- Ver el carrito de compras.
+- Realizar una orden de compra.
 
 ## Instalación
 
