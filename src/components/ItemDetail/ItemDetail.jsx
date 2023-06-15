@@ -11,7 +11,7 @@ const ItemDetail = ({ id, nombre, precio, img, stock, desc }) => {
   const { agregarProducto } = useContext(CarritoContext);
 
   const manejadorCantidad = (cantidad) => {
-    setAgregarCantidad(cantidad)
+    setAgregarCantidad(cantidad);
 
     const item = { id, nombre, precio, img, stock };
 
@@ -31,7 +31,7 @@ const ItemDetail = ({ id, nombre, precio, img, stock, desc }) => {
     agregarProducto(item, cantidad);
   };
 
-  return (
+  return nombre ? (
     <section className="detailContainer col-11 m-auto align-items-center m-top">
       <div className="container px-4 px-lg-5">
         <div className="row gx-4 gx-lg-5 align-items-center">
@@ -71,6 +71,15 @@ const ItemDetail = ({ id, nombre, precio, img, stock, desc }) => {
         </div>
       </div>
     </section>
+  ) : (
+    <div className="centered text-center">
+      <h2 className="">Item Not Found</h2>
+      <br />
+      <Link
+        to={"/"}
+        className="btn btn-main col-11"
+      >Home</Link>
+    </div>
   );
 };
 

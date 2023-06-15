@@ -8,7 +8,7 @@ import Loader from "../Loader/Loader"
 const ItemDetailContainer = () => {
   const [producto, setProducto] = useState(null);
   const { idItem } = useParams();
-
+  
   useEffect(() => {
     const nuevoDoc = doc(db, "productos", idItem);
     getDoc(nuevoDoc)
