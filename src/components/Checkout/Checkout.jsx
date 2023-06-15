@@ -36,6 +36,7 @@ const Checkout = () => {
     }
     setLoading(true);
 
+    const fecha = new Date();
     const orden = {
       items: carrito.map((prod) => ({
         id: prod.item.id,
@@ -50,6 +51,7 @@ const Checkout = () => {
       apellido,
       telefono,
       email,
+      fecha: fecha,
     };
 
     addDoc(collection(db, "ordenes"), orden)
@@ -62,7 +64,7 @@ const Checkout = () => {
             stock: prod.item.stock - prod.cantidad,
           });
         });
-        
+
         vaciarCarrito();
         showModal(docRef);
       })
@@ -76,9 +78,11 @@ const Checkout = () => {
       });
   };
   const showModal = (docRef) => {
+    const fecha = new Date();
+
     Swal.fire({
       title: "Thank You!",
-      html: `Your order Id is: <br> <strong> ${docRef.id}</strong>`,
+      html: `Your order Id is: <br> <strong> ${docRef.id}</strong><br><small>${fecha.toDateString()}</small>`,
       icon: "success",
       confirmButtonText: '<a class="btn text-white" href="/"> Back to Home</a>',
       allowOutsideClick: false,
@@ -170,7 +174,7 @@ const Checkout = () => {
         <div className="row">
           <button type="submit" className="btn-main btn col-6 m-auto">
             {loading ? (
-              <div class="spinner-border spinner-border-sm" role="status"></div>
+              <div className="spinner-border spinner-border-sm" role="status"></div>
             ) : (
               "Checkout"
             )}
