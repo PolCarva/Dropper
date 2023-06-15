@@ -52,6 +52,7 @@ const Checkout = () => {
       telefono,
       email,
       fecha: fecha,
+      estado: 'generada',
     };
 
     addDoc(collection(db, "ordenes"), orden)
