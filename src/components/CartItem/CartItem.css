@@ -7,3 +7,7 @@
 .confirm-delete {
     transition: opacity 0.3s ease-in-out;
 }
+
+.cursor-pointer {
+    cursor: pointer;
+}
