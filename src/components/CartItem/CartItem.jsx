@@ -12,10 +12,10 @@ const CartItem = ({ item, cantidad }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (Date.now() - lastUpdate >= 5000) {
+      if (Date.now() - lastUpdate >= 3000) {
         setConfirmDelete(false);
       }
-    }, 5000);
+    }, 3000);
     return () => clearTimeout(timer); // cleanup on unmount
   }, [lastUpdate]);
 
