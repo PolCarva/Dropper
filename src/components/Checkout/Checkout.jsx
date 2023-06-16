@@ -115,7 +115,7 @@ const Checkout = () => {
           </div>
         ))}
       </div>
-      <p className="text-center fw-bold">Total: $ {total.toFixed(2)}</p>
+      <p className="text-center fw-bold fs-4">Total: $ {total.toFixed(2)}</p>
       <form onSubmit={formHandler} className="formulario pb-5">
         <div>
           <div className="mb-3">

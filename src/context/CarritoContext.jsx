@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 
 export const CarritoContext = createContext({
   carrito: [],
@@ -7,9 +7,15 @@ export const CarritoContext = createContext({
 });
 
 export const CarritoProvider = ({ children }) => {
-  const [carrito, setCarrito] = useState([]);
-  const [total, setTotal] = useState(0);
-  const [cantidadTotal, setCantidadTotal] = useState(0);
+  const [carrito, setCarrito] = useState(
+    JSON.parse(localStorage.getItem("carrito")) || []
+  );
+  const [total, setTotal] = useState(
+    parseFloat(localStorage.getItem("total")) || 0
+  );
+  const [cantidadTotal, setCantidadTotal] = useState(
+    parseInt(localStorage.getItem("cantidadTotal")) || 0
+  );
 
   const agregarProducto = (item, cantidad) => {
     const productoExistente = carrito.find((prod) => prod.item.id === item.id);
@@ -82,6 +88,12 @@ export const CarritoProvider = ({ children }) => {
     setCantidadTotal(0);
     setTotal(0);
   };
+
+  useEffect(() => {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.setItem("total", total.toString());
+    localStorage.setItem("cantidadTotal", cantidadTotal.toString());
+  }, [carrito, total, cantidadTotal]);
 
   return (
     <CarritoContext.Provider

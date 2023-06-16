@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { db } from "../../services/config";
 import { getDocs, doc, collection, writeBatch } from "firebase/firestore";
-
+import { CarritoContext } from "../../context/CarritoContext";
 import "./StockReloader.css";
 
 const StockReloader = ({ onReload }) => {
   const [loading, setLoading] = useState(false);
+
+  const { vaciarCarrito } = useContext(CarritoContext);
 
   const setProductStockToRandom = async () => {
     setLoading(true);
@@ -40,6 +42,7 @@ const StockReloader = ({ onReload }) => {
         );
         setLoading(false);
         onReload();
+        vaciarCarrito();
       })
       .catch((err) => {
         console.error("Error updating stock:", err);

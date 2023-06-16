@@ -43,22 +43,18 @@ const ItemCount = ({ stock, agregarProducto }) => {
       <div
         className={
           stock !== 0
-            ? "d-flex mb-4 mb-md-0 col-12 col-md-8 justify-content-center"
-            : "d-flex mb-4 mb-md-0 col-12 col-md-8 disabled justify-content-center"
+            ? "d-flex mb-4 mb-md-0 col-12 col-md-8 justify-content-between justify-content-md-center"
+            : "d-flex mb-4 mb-md-0 col-12 col-md-8 disabled justify-content-between justify-content-md-center"
         }
       >
         <button
-          className={
-            stock !== 0
-              ? "btn btn-main me-2 flex-grow-1" // Added flex-grow-1 to occupy remaining space
-              : "btn disabled me-2 flex-grow-1" // Added flex-grow-1 to occupy remaining space
-          }
+          className={stock !== 0 ? "btn btn-main me-2" : "btn disabled me-2"}
           onClick={decrementar}
         >
           {" "}
           -{" "}
         </button>
-  
+
         <input
           className={
             stock !== 0
@@ -71,20 +67,16 @@ const ItemCount = ({ stock, agregarProducto }) => {
           onChange={validateCount}
           onBlur={validateOut}
         />
-  
+
         <button
-          className={
-            stock !== 0
-              ? "btn btn-main me-2 flex-grow-1" // Added flex-grow-1 to occupy remaining space
-              : "btn disabled me-2 flex-grow-1" // Added flex-grow-1 to occupy remaining space
-          }
+          className={stock !== 0 ? "btn btn-main me-2" : "btn disabled me-2"}
           onClick={incrementar}
         >
           {" "}
           +{" "}
         </button>
       </div>
-  
+
       <div className="col-12 col-md-4">
         <button
           className={
@@ -103,7 +95,6 @@ const ItemCount = ({ stock, agregarProducto }) => {
       </div>
     </div>
   );
-  
 };
 
 export default ItemCount;
