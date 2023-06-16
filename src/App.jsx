@@ -6,7 +6,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CarritoProvider } from "./context/CarritoContext";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
+import StockReloader from "./components/StockReloader/StockReloader";
+
+
+
 function App() {
+
   return (
     <>
       <BrowserRouter>

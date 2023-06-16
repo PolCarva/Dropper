@@ -4,13 +4,14 @@ import { useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import { collection, getDocs, where, query } from "firebase/firestore";
 import { db } from "../../services/config";
+import StockReloader from "../StockReloader/StockReloader";
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { idCategoria } = useParams();
 
-  useEffect(() => {
+  const getProductos = () => {
     const misProductos = idCategoria
       ? query(collection(db, "productos"), where("idCat", "==", idCategoria))
       : collection(db, "productos");
@@ -33,9 +34,23 @@ const ItemListContainer = () => {
         console.log(error);
         setIsLoading(false);
       });
+  };
+
+  useEffect(() => {
+    getProductos();
   }, [idCategoria]);
 
-  return <>{isLoading ? <Loader /> : <ItemList productos={productos} />}</>;
+  return (
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <ItemList productos={productos} /> <StockReloader onReload={getProductos} />
+        </>
+      )}
+    </>
+  );
 };
 
 export default ItemListContainer;

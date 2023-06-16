@@ -15,8 +15,10 @@ Este proyecto es una aplicación de ecommerce básica utilizada como parte de un
 - Ver una lista de productos disponibles.
 - Filtrar productos por categoría.
 - Agregar productos al carrito de compras.
+- Ver detalle del producto.
 - Ver el carrito de compras.
-- Realizar una orden de compra.
+- Realizar una orden de compra la cual disminuye el stock en la base de datos.
+- Recargar randómicamente el stock en caso de que no haya productos (siempre hay como mínimo uno sin stock como muestra).
 
 ## Instalación
 
