@@ -6,12 +6,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CarritoProvider } from "./context/CarritoContext";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
-import StockReloader from "./components/StockReloader/StockReloader";
-
-
+import { Link } from "react-router-dom";
 
 function App() {
-
   return (
     <>
       <BrowserRouter>
@@ -28,7 +25,18 @@ function App() {
             <Route path="/checkout" element={<Checkout />} />
             <Route
               path="*"
-              element={<h2 className="centered">Sitio en Construcción</h2>}
+              element={
+                <div className="centered text-center">
+                  <h1>
+                    <span className="fw-bold fontLarge">404</span>
+                    <br /> Page Not Found
+                  </h1>
+                  <br />
+                  <Link to={"/"} className="btn btn-main col-11">
+                    Home
+                  </Link>
+                </div>
+              }
             />
           </Routes>
         </CarritoProvider>

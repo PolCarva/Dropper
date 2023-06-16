@@ -50,3 +50,7 @@ a:hover {
 .m-top {
     padding-top: 20vh;
 }
+
+.fontLarge {
+    font-size: 2em;
+}

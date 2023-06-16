@@ -108,7 +108,7 @@ const Checkout = () => {
         {carrito.map((producto) => (
           <div key={producto.item.id}>
             <p>
-              {producto.item.nombre} x {producto.cantidad}
+              {producto.item.nombre} <span className="fw-bold">x {producto.cantidad}</span>
             </p>
             <p>Unity Price: $ {producto.item.precio}</p>
             <hr />

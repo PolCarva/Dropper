@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import ItemList from "../ItemList/ItemList";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import { collection, getDocs, where, query } from "firebase/firestore";
 import { db } from "../../services/config";
@@ -39,15 +39,23 @@ const ItemListContainer = () => {
   useEffect(() => {
     getProductos();
   }, [idCategoria]);
-
   return (
     <>
       {isLoading ? (
         <Loader />
-      ) : (
+      ) : productos.length != 0 ? (
         <>
-          <ItemList productos={productos} /> <StockReloader onReload={getProductos} />
+          <ItemList productos={productos} />{" "}
+          <StockReloader onReload={getProductos} />
         </>
+      ) : (
+        <div className="centered text-center">
+          <h2 className="">Category Not Found</h2>
+          <br />
+          <Link to={"/"} className="btn btn-main col-11">
+            Home
+          </Link>
+        </div>
       )}
     </>
   );
