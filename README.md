@@ -14,7 +14,7 @@ Este proyecto es una aplicación de ecommerce básica utilizada como parte de un
 ## Funcionalidades
 - Ver una lista de productos disponibles.
 - Filtrar productos por categoría.
-- Agregar productos al carrito de compras.
+- Agregar productos al carrito de compras, los cuales quedan guardados en el Local Storage.
 - Ver detalle del producto.
 - Ver el carrito de compras.
 - Realizar una orden de compra la cual disminuye el stock en la base de datos.
