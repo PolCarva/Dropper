@@ -17,6 +17,7 @@ Este proyecto es una aplicación de ecommerce básica utilizada como parte de un
 - Agregar productos al carrito de compras, los cuales quedan guardados en el Local Storage.
 - Ver detalle del producto.
 - Ver el carrito de compras.
+- Eliminar productos del carrito.
 - Realizar una orden de compra la cual disminuye el stock en la base de datos.
 - Recargar randómicamente el stock en caso de que no haya productos (siempre hay como mínimo uno sin stock como muestra).
 
