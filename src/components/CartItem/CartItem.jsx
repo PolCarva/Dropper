@@ -55,7 +55,7 @@ const CartItem = ({ item, cantidad }) => {
               }`}
               onClick={handleDelete}
             >
-              {confirmDelete ? "Confirm" : "Delete"}
+              {confirmDelete ? "Confirm" : <i class="bi bi-trash-fill"></i>}
             </button>
           </div>
         </div>

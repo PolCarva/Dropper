@@ -84,7 +84,6 @@ const Checkout = () => {
   };
 
 
-
   const showModal = (docRef) => {
     const fecha = new Date();
 
