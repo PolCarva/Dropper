@@ -12,11 +12,12 @@ const CartItem = ({ item, cantidad }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (Date.now() - lastUpdate >= 3000) {
+      if (Date.now() - lastUpdate >= 4000) {
         setConfirmDelete(false);
+        setDeleteQuantity(1);
       }
-    }, 3000);
-    return () => clearTimeout(timer); // cleanup on unmount
+    }, 4000);
+    return () => clearTimeout(timer);
   }, [lastUpdate]);
 
   const handleClickDelete = () => {
@@ -25,20 +26,20 @@ const CartItem = ({ item, cantidad }) => {
   };
 
   const handleConfirmDelete = (event) => {
-    event.stopPropagation(); // Stop the click event from propagating to the delete button
+    event.stopPropagation();
 
     if (deleteQuantity === cantidad) {
       setAnimating(true);
       setTimeout(() => {
         eliminarProducto(item.id, deleteQuantity);
-        setDeleteQuantity(1); // Reset delete quantity
-        setConfirmDelete(false); // Close confirm box
+        setDeleteQuantity(1);
+        setConfirmDelete(false);
         setAnimating(false);
       }, 500);
     } else {
       eliminarProducto(item.id, deleteQuantity);
-      setDeleteQuantity(1); // Reset delete quantity
-      setConfirmDelete(false); // Close confirm box
+      setDeleteQuantity(1);
+      setConfirmDelete(false);
     }
   };
 
