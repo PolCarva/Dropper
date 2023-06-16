@@ -19,12 +19,16 @@ const Checkout = () => {
 
   const formHandler = (e) => {
     e.preventDefault();
+    setError("");
 
     if (total === 0) {
       setError("Cart is empty");
       return;
     }
-
+    if (telefono.length < 4) {
+      setError("Please, enter a valid phone number");
+      return;
+    }
     if (!nombre || !apellido || !telefono || !email || !emailConfirmacion) {
       setError("Please, complete all fields");
       return;
@@ -52,7 +56,7 @@ const Checkout = () => {
       telefono,
       email,
       fecha: fecha,
-      estado: 'generada',
+      estado: "generada",
     };
 
     addDoc(collection(db, "ordenes"), orden)
@@ -78,12 +82,17 @@ const Checkout = () => {
         });
       });
   };
+
+
+
   const showModal = (docRef) => {
     const fecha = new Date();
 
     Swal.fire({
       title: "Thank You!",
-      html: `Your order Id is: <br> <strong> ${docRef.id}</strong><br><small>${fecha.toDateString()}</small>`,
+      html: `Your order Id is: <br> <strong> ${
+        docRef.id
+      }</strong><br><small>${fecha.toDateString()}</small>`,
       icon: "success",
       confirmButtonText: '<a class="btn text-white" href="/"> Back to Home</a>',
       allowOutsideClick: false,
@@ -137,12 +146,16 @@ const Checkout = () => {
           <div className="mb-3">
             <label htmlFor="telefono">Phone</label>
             <input
-              type="text"
+              type="tel"
               id="telefono"
+              pattern="[0-9]*"
+              inputMode="numeric"
               className="form-control"
               value={telefono}
               onChange={(e) => {
-                setTelefono(e.target.value);
+                if (e.target.value.length <= 10) {
+                  setTelefono(e.target.value);
+                }
               }}
             />
           </div>
@@ -175,7 +188,10 @@ const Checkout = () => {
         <div className="row">
           <button type="submit" className="btn-main btn col-6 m-auto">
             {loading ? (
-              <div className="spinner-border spinner-border-sm" role="status"></div>
+              <div
+                className="spinner-border spinner-border-sm"
+                role="status"
+              ></div>
             ) : (
               "Checkout"
             )}
